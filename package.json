@@ -1,0 +1,11 @@
+{
+  "name": "smart-table-sticky-header",
+  "version": "1.0.0",
+  "description": "sticky header directive for smart table",
+  "main": "stStickyHeader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laurent Renard",
+  "license": "MIT"
+}
