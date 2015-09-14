@@ -1,6 +1,6 @@
 {
   "name": "smart-table-sticky-header",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sticky header directive for smart table",
   "main": "stStickyHeader.js",
   "scripts": {
