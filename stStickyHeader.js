@@ -5,7 +5,7 @@
       return {
         require: '^?stTable',
         link: function (scope, element, attr, ctrl) {
-          var stickyHeader = lrStickyHeader(element[0]);
+          var stickyHeader = lrStickyHeader(element[0], {headerHeight: attr.stStickyHeaderTop});
           scope.$on('$destroy', function () {
             stickyHeader.clean();
           });
