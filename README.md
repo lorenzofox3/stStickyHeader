@@ -14,8 +14,7 @@ sticky table directive for smart-table
 
 ## example
 
-```Markup
-
+```html
 <script src="angular.js"></script> <!-- add angular framework-->
 <script src="lrStickyHeader.js"></script> <!-- add lrStickyHeader (script framework agnostic) --> 
 <script src="smart-table.js"></script> <!-- add smart table angular module --> 
