@@ -4,10 +4,10 @@
         .directive('stStickyHeader', ['$window', '$timeout', function($window,$timeout) {
             return {
                 require: '^?stTable',
-                link: function(scope, element, attr, ctrl) {
-                    var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop });
+                link: function(scope, element, attr, ctrl) {                    
                     // used $timeout which helped for mulitple smart tables usuage, it will wait until it finds element[0] for next smartTable.
                     $timeout(function() {
+                        var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop });
                         scope.$on('$destroy', function() {
                             stickyHeader.clean();
                         });
