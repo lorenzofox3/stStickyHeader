@@ -23,7 +23,7 @@ sticky table directive for smart-table
   angular.module('myApp',['smart-table']) // bootstrap your app 
 </script>
 
-<table st-table="foo" st-sticky-header>  <!-- use st-sticky-header directive on the smart-table element -->
+<table st-table="foo" st-sticky-header st-sticky-header-top="120">  <!-- use st-sticky-header directive on the smart-table element -->
 
 </table>
 ```
