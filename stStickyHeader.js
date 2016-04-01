@@ -7,11 +7,11 @@
                 link: function(scope, element, attr, ctrl) {                    
                     // used $timeout which helped for mulitple smart tables usuage, it will wait until it finds element[0] for next smartTable.
                     $timeout(function() {
-                        var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop });
+                        var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop, tBodyCls: attr.stStickyHeaderTbodyClass });
                         scope.$on('$destroy', function() {
                             stickyHeader.clean();
                         });
-                    }, 10);
+                    }, 200);
 
                     scope.$watch(function() {
                         return ctrl.tableState();
@@ -25,7 +25,7 @@
                         angular.element(element[0]).find('thead').removeAttr('style');
                         angular.element(element[0]).find('thead').removeClass('lr-sticky-header');
                         $window.scrollTo(0, lrStickyHeader.treshold);
-                        var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop });
+                        var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop, tBodyCls: attr.stStickyHeaderTbodyClass });
                     });
                 }
             }

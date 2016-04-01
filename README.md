@@ -23,7 +23,14 @@ sticky table directive for smart-table
   angular.module('myApp',['smart-table']) // bootstrap your app 
 </script>
 
-<table st-table="foo" st-sticky-header st-sticky-header-top="120">  <!-- use st-sticky-header directive on the smart-table element -->
+<!-- sample css if you want override 
+
+.sticky-header-tbody-space:before {
+  content: '-';
+  line-height: 180px;
+} -->
+
+<table st-table="foo" st-sticky-header st-sticky-header-top="120" st-sticky-header-tbody-class="sticky-header-tbody-space">  <!-- use st-sticky-header directive on the smart-table element -->
 
 </table>
 ```
