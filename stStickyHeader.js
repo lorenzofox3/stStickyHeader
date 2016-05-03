@@ -5,12 +5,10 @@
             return {
                 require: '^?stTable',
                 link: function(scope, element, attr, ctrl) {                    
+                    var stickyHeader;
                     // used $timeout which helped for mulitple smart tables usuage, it will wait until it finds element[0] for next smartTable.
                     $timeout(function() {
-                        var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop, tBodyCls: attr.stStickyHeaderTbodyClass });
-                        scope.$on('$destroy', function() {
-                            stickyHeader.clean();
-                        });
+                        stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop, tBodyCls: attr.stStickyHeaderTbodyClass });
                     }, 200);
 
                     scope.$watch(function() {
@@ -20,12 +18,19 @@
                     }, true);
 
                     // The below code is a fix for resize window in all browsers
-                    angular.element($window).on("resize", function() {
+                    function stResizeWindow() {
                         //stickyHeader.clean();
                         angular.element(element[0]).find('thead').removeAttr('style');
                         angular.element(element[0]).find('thead').removeClass('lr-sticky-header');
                         $window.scrollTo(0, lrStickyHeader.treshold);
-                        var stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop, tBodyCls: attr.stStickyHeaderTbodyClass });
+                        stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop, tBodyCls: attr.stStickyHeaderTbodyClass });
+                    }
+
+                    angular.element($window).on("resize", stResizeWindow);
+
+                    scope.$on('$destroy', function() {
+                        stickyHeader.clean();
+                        angular.element($window).off("resize", stResizeWindow);
                     });
                 }
             }
