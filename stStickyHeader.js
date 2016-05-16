@@ -7,9 +7,9 @@
                 link: function(scope, element, attr, ctrl) {                    
                     var stickyHeader;
                     // used $timeout which helped for mulitple smart tables usuage, it will wait until it finds element[0] for next smartTable.
-                    $timeout(function() {
+                    var timer = $timeout(function() {
                         stickyHeader = lrStickyHeader(element[0], { headerHeight: attr.stStickyHeaderTop, tBodyCls: attr.stStickyHeaderTbodyClass });
-                    }, 200);
+                    }, 1000);
 
                     scope.$watch(function() {
                         return ctrl.tableState();
@@ -29,6 +29,7 @@
                     angular.element($window).on("resize", stResizeWindow);
 
                     scope.$on('$destroy', function() {
+                        $timeout.cancel(timer);
                         stickyHeader.clean();
                         angular.element($window).off("resize", stResizeWindow);
                     });
