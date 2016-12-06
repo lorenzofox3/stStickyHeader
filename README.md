@@ -5,8 +5,9 @@ sticky table directive for smart-table
 
 ## install 
 
-``bower install st-sticky-header``
-``npm install smart-table-sticky-header``
+`bower install st-sticky-header`
+
+`npm install smart-table-sticky-header`
 
 ## dependencies
 
